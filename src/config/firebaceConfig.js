@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-
+import { Firestore } from 'firebase/firestore';
 
 
 const firebaseConfig = {
@@ -35,11 +35,12 @@ const firebaseConfig = {
     appId: "1:s:android:s",
   };
   const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app)
-  const auth =initializeAuth(app,{
-    persistence: getReactNativePersistence(AsyncStorage),
-  });
+ const app = initializeApp(firebaseConfig);
 
-  export{auth, db};
+  // Firestore and Auth initialization
+  const db = getFirestore(app);
+  const auth = getAuth(app);  // Using getAuth instead of initializeAuth
+  
+  export { auth, db };
 
 */

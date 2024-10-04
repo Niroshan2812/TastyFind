@@ -1,5 +1,8 @@
 import React,{useState} from "react";
 import {View, Text, StyleSheet, TextInput, Button} from "react-native"
+import CustomButton from "../../components/CustomButton";
+
+
 export default function EditItemScreen({route, navigation}){
     const {item, setItem, items} = route.params;
 
@@ -31,7 +34,7 @@ export default function EditItemScreen({route, navigation}){
         onChangeText={setExpiration}
       />
       <View style={styles.buttonContainer}>
-        <Button title="Save"/>
+        <CustomButton title="Save"/>
       </View>
     </View>
   );
