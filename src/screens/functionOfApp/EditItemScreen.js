@@ -1,16 +1,36 @@
 import React,{useState} from "react";
-import {View, Text, StyleSheet, TextInput, Button} from "react-native"
+import {View, Text, StyleSheet, TextInput, Button, Alert} from "react-native"
 import CustomButton from "../../components/CustomButton";
+import {doc, updateDoc} from 'firebase/firestore';
+import {db} from "../../config/firebaceConfig";
+
 
 
 export default function EditItemScreen({route, navigation}){
-    const {item, setItem, items} = route.params;
+  // to get items from rote parms
+    const {item} = route.params;
 
     const [name,setName] =useState(item? item.name: '');
     const [quantity, setQuantity] = useState(item? item.quantity: '');
     const[expiration, setExpiration] = useState(item ? item.expiration : '');
 
 
+    const handleSave = async ()=>{
+      try{
+        const itemDocRef = doc(db,"items", item.id );
+
+        await updateDoc(itemDocRef, {
+          name: name,
+          quantity: quantity,
+          expiration: expiration
+        })
+        Alert.alert("Sucess", "Item is saved succefylly");
+    }
+    catch(error){
+      console.error("Error updating item: ", error);
+      Alert.alert("Error", "Failed to update item.");
+    }
+  }
 
     return (
     <View style={styles.container}>
@@ -34,7 +54,7 @@ export default function EditItemScreen({route, navigation}){
         onChangeText={setExpiration}
       />
       <View style={styles.buttonContainer}>
-        <CustomButton title="Save"/>
+        <CustomButton title="Save" onPress={handleSave}/>
       </View>
     </View>
   );
