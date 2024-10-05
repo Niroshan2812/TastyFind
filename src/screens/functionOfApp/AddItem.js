@@ -4,6 +4,8 @@ import CustomButton from "../../components/CustomButton";
 import { db } from "../../config/firebaceConfig";
 import { collection, addDoc } from "firebase/firestore";
 
+import {addItem} from '../../components/FirebaceSearvice';
+
 export default function AddItem() {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -15,11 +17,16 @@ export default function AddItem() {
         Alert.alert("All field need to be field");
         return;
       }
+    await addItem({name, quantity, expiration});
+    Alert.alert("Success", "Item Savied Succefully ")
+
+      /* 
       const docRef = await addDoc(collection(db, "items"), {
         name: name,
         quantity: quantity,
         expiration: expiration,
       });
+      */
       Alert.alert("Sucess", "Item Saved")
     } catch (error) {
       console.log("Error saving item: ", error.message);

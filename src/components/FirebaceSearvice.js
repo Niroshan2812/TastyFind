@@ -1,5 +1,5 @@
 import {db} from "../config/firebaceConfig";
-import { collection,addDoc, updateDoc,getDoc,doc } from "firebase/firestore";
+import { collection,addDoc, updateDoc,getDoc,doc , getDocs} from "firebase/firestore";
 
 //Add a new item to firestore
 export const addItem = async(item)=>{
@@ -37,7 +37,7 @@ export const updateItem = async (item) =>{
 // fetch item from firebace Store 
 export const getItems =async () =>{
     try {
-        const querySnapshop = await getDoc(collection(db, "items"));
+        const querySnapshop = await getDocs(collection(db, "items"));
         const items = querySnapshop.docs.map((doc) => ({
             ...doc.data(),
             id: doc.id,

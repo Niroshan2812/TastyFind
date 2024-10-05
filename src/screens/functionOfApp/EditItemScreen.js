@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, TextInput, Button, Alert} from "react-native"
 import CustomButton from "../../components/CustomButton";
 import {doc, updateDoc} from 'firebase/firestore';
 import {db} from "../../config/firebaceConfig";
+import {updateItem} from "../../components/FirebaceSearvice"
 
 
 
@@ -17,13 +18,7 @@ export default function EditItemScreen({route, navigation}){
 
     const handleSave = async ()=>{
       try{
-        const itemDocRef = doc(db,"items", item.id );
-
-        await updateDoc(itemDocRef, {
-          name: name,
-          quantity: quantity,
-          expiration: expiration
-        })
+        await updateItem({id:item.id,name, quantity,expiration});
         Alert.alert("Sucess", "Item is saved succefylly");
     }
     catch(error){
