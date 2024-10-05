@@ -159,8 +159,5 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For any inquiries, feel free to contact [Your Name](mailto:your-email@example.com).
+For any inquiries, feel free to contact Niroshan.
 
----
-
-This version is cleaner and eliminates any unwanted symbols. Let me know if you'd like to add or modify anything!
