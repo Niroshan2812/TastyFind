@@ -5,12 +5,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDBXK7eZRKpZL6-VLeTDOykm9z1TnYQhgo",
-    authDomain: "tastyfirst.firebaseapp.com",
-    projectId: "tastyfirst",
-    storageBucket: "tastyfirst.appspot.com",
-    messagingSenderId: "875137389623",
-    appId: "1:875137389623:android:bd9d25cf7108e326ad9bb2",
+    apiKey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    authDomain: "xxxxxxxxxx.firebaseapp.com",
+    projectId: "xxxxxxxxxx",
+    storageBucket: "xxxxxxxxxxxxxxxxxx.appspot.com",
+    messagingSenderId: "xxxxxxxxxxxx",
+    appId: "x:xxxxxxxxxx:xxxxxxxxx:xxxxxxxxxxxx",
   };
   const app = initializeApp(firebaseConfig);
 
@@ -27,12 +27,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';  // Import
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "s-VLeTDOykm9z1TnYQhgo",
+    apiKey: "s-xxxxxxxxxxxxxxxx",
     authDomain: "s.firebaseapp.com",
     projectId: "s",
     storageBucket: "s.appspot.com",
     messagingSenderId: "s",
-    appId: "1:s:android:s",
+    appId: "x:s:android:s",
   };
   const app = initializeApp(firebaseConfig);
  const app = initializeApp(firebaseConfig);
